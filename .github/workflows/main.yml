@@ -29,8 +29,8 @@ jobs:
       - name: Copy Liquibase Configuration Files
         run: |
           mkdir -p /opt/liquibase  
-          cp $GITHUB_WORKSPACE/liquibase/liquibase.properties /opt/liquibase/liquibase.properties
-          cp $GITHUB_WORKSPACE/liquibase/changelog.xml /opt/liquibase/changelog.xml
+          cp $GITHUB_WORKSPACE/opt/liquibase/liquibase.properties /opt/liquibase/liquibase.properties
+          cp $GITHUB_WORKSPACE/opt/liquibase/changelog.xml /opt/liquibase/changelog.xml
           ls -l /opt/liquibase  
 
       - name: Debug Liquibase Properties
