@@ -40,6 +40,18 @@ jobs:
           cat /opt/liquibase/liquibase.properties || echo "⚠️ liquibase.properties NOT FOUND!"
 
 
+      - name: Run Liquibase for All Tenants
+        run: |
+          for i in {1..4}; do
+            DB_NAME="tenant$i"
+            echo "Running Liquibase for $DB_NAME..."
+            /opt/liquibase/liquibase \
+              --searchPath=/opt \
+              --defaults-file=/opt/liquibase/liquibase.properties \
+              --log-level=debug \
+              update -DDB_NAME=$DB_NAME
+          done
+
       - name: Run Liquibase STATUS with Properties File
         run: |
             /opt/liquibase/liquibase --searchPath=/opt status --changelog-file=liquibase/changelog.xml --log-level=debug
