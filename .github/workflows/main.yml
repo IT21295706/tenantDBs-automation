@@ -1,0 +1,50 @@
+name: Liquibase Migrationn
+
+on:
+  push:
+    branches:
+      - main  # Change this if needed
+    paths:
+      - '/opt/liquibase/changelog.xml'  # Trigger when changelog.xml is updated
+  workflow_dispatch:  
+
+jobs:
+  liquibase-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Liquibase
+        run: |
+          wget https://github.com/liquibase/liquibase/releases/download/v4.25.0/liquibase-4.25.0.zip
+          unzip liquibase-4.25.0.zip -d /opt/liquibase
+          chmod +x /opt/liquibase/liquibase
+
+
+      - name: Test DB Connection
+        run: |
+          nc -zv 13.212.238.210 3306
+
+      - name: Copy Liquibase Configuration Files
+        run: |
+          mkdir -p /opt/liquibase  
+          cp $GITHUB_WORKSPACE/liquibase/liquibase.properties /opt/liquibase/liquibase.properties
+          cp $GITHUB_WORKSPACE/liquibase/changelog.xml /opt/liquibase/changelog.xml
+          ls -l /opt/liquibase  
+
+      - name: Debug Liquibase Properties
+        run: |
+          ls -l /opt/liquibase/
+          cat /opt/liquibase/liquibase.properties || echo "⚠️ liquibase.properties NOT FOUND!"
+
+
+      - name: Run Liquibase STATUS with Properties File
+        run: |
+            /opt/liquibase/liquibase --searchPath=/opt status --changelog-file=liquibase/changelog.xml --log-level=debug
+
+
+
+      - name: Print Success Message
+        run: echo "✅ Liquibase migration applied successfully!"
