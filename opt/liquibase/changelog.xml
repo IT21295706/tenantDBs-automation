@@ -7,64 +7,16 @@
 
     <changeSet id="1" author="Ranuri">
         <addColumn tableName="example_table">
-            <column name="new_column" type="varchar(255)"/>
+            <column name="ranuri5" type="varchar(255)"/>
         </addColumn>
     </changeSet>
 
     <changeSet id="2" author="Ranuri">
         <renameColumn
             tableName="example_table"
-            oldColumnName="new_column"
-            newColumnName="ranuri"
-            columnDataType="varchar(255)"/>
-    </changeSet>
-
-    <changeSet id="3" author="Ranuri">
-        <renameColumn
-            tableName="example_table"
-            oldColumnName="ranuri"
-            newColumnName="ranuri1"
-            columnDataType="varchar(255)"/>
-    </changeSet>
-
-    <changeSet id="4" author="Ranuri">
-        <renameColumn
-            tableName="example_table"
-            oldColumnName="ranuri1"
-            newColumnName="ranuri2"
-            columnDataType="varchar(255)"/>
-    </changeSet>
-
-     <changeSet id="5" author="Ranuri">
-        <renameColumn
-            tableName="example_table"
-            oldColumnName="ranuri2"
-            newColumnName="ranuri3"
-            columnDataType="varchar(255)"/>
-   </changeSet>
-
-   <changeSet id="6" author="Ranuri">
-        <renameColumn
-            tableName="example_table"
-            oldColumnName="ranuri3"
-            newColumnName="ranuri4"
-            columnDataType="varchar(255)"/>
-   </changeSet>
-
-   <changeSet id="7" author="Ranuri">
-        <renameColumn
-            tableName="example_table"
-            oldColumnName="ranuri4"
-            newColumnName="ranuri5"
-            columnDataType="varchar(255)"/>
-   </changeSet>
-
-    <changeSet id="8" author="Ranuri">
-        <renameColumn
-            tableName="example_table"
             oldColumnName="ranuri5"
             newColumnName="ranuri6"
             columnDataType="varchar(255)"/>
-   </changeSet>
+    </changeSet>
 
-</databaseChangeLog>
+    
