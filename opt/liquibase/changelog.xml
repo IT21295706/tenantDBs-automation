@@ -19,4 +19,4 @@
             columnDataType="varchar(255)"/>
     </changeSet>
 
-    
+    </databaseChangeLog>
