@@ -47,6 +47,10 @@ jobs:
             # Update liquibase.properties dynamically for each tenant
             sed -i "s|^url=.*|url=jdbc:mariadb://13.212.238.210:3306/$DB_NAME|" /opt/liquibase/liquibase.properties
 
+             # Debugging step: Print the properties file to check if DB_NAME was replaced
+              echo "Contents of liquibase.properties:"
+              cat /opt/liquibase/liquibase.properties
+
             # Run Liquibase Update
             /opt/liquibase/liquibase \
               --searchPath=/opt \
