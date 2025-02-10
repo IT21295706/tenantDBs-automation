@@ -41,23 +41,20 @@ jobs:
       - name: Run Liquibase for All Tenants
         run: |
           for i in {1..4}; do
-            DB_NAME="tenant$i"
-            echo "Running Liquibase for $DB_NAME..."
-            
-            # Update liquibase.properties dynamically for each tenant
-            sed -i "s|^url=.*|url=jdbc:mariadb://13.212.238.210:3306/$DB_NAME|" /opt/liquibase/liquibase.properties
+              DB_NAME="tenant$i"
+              echo "Running Liquibase for $DB_NAME..."
 
-             # Debugging step: Print the properties file to check if DB_NAME was replaced
-              echo "Contents of liquibase.properties:"
-              cat /opt/liquibase/liquibase.properties
-
-            # Run Liquibase Update
-            /opt/liquibase/liquibase \
-              --searchPath=/opt \
-              --defaults-file=/opt/liquibase/liquibase.properties \
-              --log-level=debug \
-              update
+              /opt/liquibase/liquibase \
+                --searchPath=/opt \
+                --url="jdbc:mariadb://13.212.238.210:3306/$DB_NAME" \
+                --username=root \
+                --password=ranuri \
+                --changeLogFile=liquibase/changelog.xml \
+                --driver=org.mariadb.jdbc.Driver \
+                --log-level=debug \
+                update
           done
+
 
       - name: Print Success Message
         run: echo "✅ Liquibase migration applied successfully!"
