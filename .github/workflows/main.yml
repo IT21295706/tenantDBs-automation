@@ -44,7 +44,7 @@ jobs:
               DB_NAME="tenant$i"
               echo "Running Liquibase for $DB_NAME..."
 
-              /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties update --changelog-file=liquibase/changelog.xml --log-level=debug
+              /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties update -DDB_NAME=$DB_NAME --changelog-file=liquibase/changelog.xml --log-level=debug
           done
             
 
