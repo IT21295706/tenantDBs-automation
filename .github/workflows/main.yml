@@ -41,11 +41,16 @@ jobs:
       - name: Run Liquibase for All Tenants
         run: |
           for i in {1..4}; do
-              DB_NAME="tenant$i"
-              echo "Running Liquibase for $DB_NAME..."
-
-              /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties update -DDB_NAME=$DB_NAME --changelog-file=liquibase/changelog.xml --log-level=debug
-          done
+            DB_NAME="tenant$i"
+            echo "Running Liquibase for $DB_NAME..."
+    
+            /opt/liquibase/liquibase \
+              --searchPath=/opt \
+              --defaults-file=/opt/liquibase/liquibase.properties \
+              -DDB_NAME=$DB_NAME \
+              --log-level=debug \
+              update
+           done
             
 
       - name: Print Success Message
