@@ -59,11 +59,6 @@ jobs:
               --log-level=debug \
               update
           done
-     
-        
-          echo "🔄 Running Liquibase update..."       
-          /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties update --changelog-file=liquibase/changelog.xml --log-level=debug
-          echo "LIQUIBASE_EXIT_CODE=$?" >> $GITHUB_ENV  # Save exit code to GitHub Actions env variable
             
 
       - name: Print Success Message
