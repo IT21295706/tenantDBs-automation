@@ -12,4 +12,11 @@
         </addColumn>
     </changeSet>
 
+    <!-- Add a simple column 'col-1' to TABLE_EKA -->
+    <changeSet id="2" author="Ranuri">
+        <addColumn tableName="TABLE_EKA">
+            <column name="col-2" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
