@@ -53,7 +53,7 @@ jobs:
 
       - name: Tag Database Before Update
         run: |
-            /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties tag "before_update"
+            /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties  --url="jdbc:mariadb://13.212.238.210:3306/$DB_NAME" tag "before_update"
 
 
       - name: Run Liquibase Update for All Tenants
