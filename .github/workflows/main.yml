@@ -54,7 +54,7 @@ jobs:
         run: |
           echo "🛠️ Creating a backup before applying changes..."
           ssh -i ~/.ssh/aws_key.pem -o StrictHostKeyChecking=no ec2-user@13.212.238.210 << EOF
-            mysqldump -u root -p"${{ secrets.MYSQL_PASSWORD }}" tenant100 > /home/ec2-user/BACKUP_PRE_UPDATE.sql
+            mysqldump -u root -p"${{ secrets.MYSQL_PASSWORD }}" tenant100 > /home/ec2-user/BACKUP_tenant100.sql
           EOF
           echo "✅ Backup created successfully!"
             
