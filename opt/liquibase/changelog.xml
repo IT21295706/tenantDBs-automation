@@ -5,18 +5,11 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-
-     <changeSet id="1" author="Ranuri">
-      <addColumn tableName="NEW_TABLE">
-          <column name="col-1-boo" type="varchar(5)"/>
-      </addColumn>
-   </changeSet>
-
-
-      <changeSet id="2" author="Ranuri">
-      <addColumn tableName="NEW_TABLE">
-          <column name="col-2-boo" type="varchar(5)"/>
-      </addColumn>
-   </changeSet>
+    <!-- Add a simple column 'col-1' to TABLE_EKA -->
+    <changeSet id="1" author="Ranuri">
+        <addColumn tableName="TABLE_EKA">
+            <column name="col-1" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
 
 </databaseChangeLog>
