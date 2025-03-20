@@ -19,4 +19,21 @@
         </addColumn>
     </changeSet>
 
+    
+    <!-- Add a simple column 'col-1' to TABLE_EKA -->
+    <changeSet id="3" author="Ranuri">
+        <addColumn tableName="TABLE_EKA">
+            <column name="col-3" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
+
+   <!-- Add a simple column 'col-1' to TABLE_EKA -->
+    <changeSet id="4" author="Ranuri">
+        <addColumn tableName="Ttttttttt">
+            <column name="col-4" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+    
+
 </databaseChangeLog>
