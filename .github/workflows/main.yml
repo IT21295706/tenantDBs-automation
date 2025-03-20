@@ -47,7 +47,7 @@ jobs:
         id: liquibase_update
         run: |
 
-          for i in {1..4}; do
+          for i in {2..4}; do
             DB_NAME="tenant$i"
             echo "Running Liquibase for $DB_NAME..."
   
