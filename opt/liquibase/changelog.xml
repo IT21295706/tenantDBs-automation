@@ -86,4 +86,27 @@
         </rollback>
     </changeSet>
 
+
+    
+       <!-- Create a new table TABLE_MANUAL_ROLLBACK -->
+    <changeSet id="11" author="Ranuri">
+        <createTable tableName="ALUTHMA_TABLE_EKA">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(10)"/>
+            <column name="description" type="text"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="ALUTHMA_TABLE_EKA"/>
+        </rollback>
+    </changeSet>
+
+      <!-- Add a simple column 'col-1' to TABLE_2 -->
+    <changeSet id="12" author="Ranuri">
+        <addColumn tableName="TTTTTTTTTT">
+            <column name="col-5-haree-ENNNA" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
