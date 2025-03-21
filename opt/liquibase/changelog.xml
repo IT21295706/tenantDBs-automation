@@ -43,9 +43,9 @@
 
 
    <!-- Add a simple column 'col-1' to TABLE_EKA -->
-    <changeSet id="5" author="Ranuri">
+    <changeSet id="6" author="Ranuri">
         <addColumn tableName="Ttttttttt">
-            <column name="col-5" type="varchar(10)"/>
+            <column name="col-6-NEW" type="varchar(10)"/>
         </addColumn>
     </changeSet>
     
