@@ -47,15 +47,6 @@
             <column name="col-1-haree" type="varchar(10)"/>
         </addColumn>
     </changeSet>
-
-
-   <!-- Add a simple column 'col-1' to TABLE_2 -->
-    <changeSet id="7" author="Ranuri">
-        <addColumn tableName="Ttttttttt">
-            <column name="col-2-NEW" type="varchar(10)"/>
-        </addColumn>
-    </changeSet>
-
     
     
 
