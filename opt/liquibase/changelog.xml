@@ -61,6 +61,6 @@
         <addColumn tableName="Ttttttttt">
             <column name="col-3-haree"" type="varchar(10)"/>
         </addColumn>
-    </changeSet
+    </changeSet>
 
 </databaseChangeLog>
