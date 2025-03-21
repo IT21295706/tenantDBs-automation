@@ -51,15 +51,30 @@
     <!-- Add a simple column 'col-1' to TABLE_2 -->
     <changeSet id="7" author="Ranuri">
         <addColumn tableName="TABLE_2">
-            <column name="col-2-haree" type="varchar(10)"/>
+            <column name="col-2-haree-ENNNA" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
+      <!-- Add a simple column 'col-1' to TABLE_2 -->
+    <changeSet id="8" author="Ranuri">
+        <addColumn tableName="TABLE_2">
+            <column name="col-3-haree-ENNNA" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
+
+     <!-- Add a simple column 'col-1' to TABLE_2 -->
+    <changeSet id="9" author="Ranuri">
+        <addColumn tableName="TABLE_2">
+            <column name="col-4-haree-ENNNA" type="varchar(10)"/>
         </addColumn>
     </changeSet>
 
     
      <!-- Add a simple column 'col-1' to TABLE_2 -->
-    <changeSet id="8" author="Ranuri">
+    <changeSet id="10" author="Ranuri">
         <addColumn tableName="Ttttttttttttttttt">
-            <column name="col-3-not supposed to come" type="varchar(10)"/>
+            <column name="col-5-haree-ENNNA" type="varchar(10)"/>
         </addColumn>
     </changeSet>
 
