@@ -56,10 +56,10 @@
     </changeSet>
 
     
-   <!-- Add a simple column 'col-1' to TABLE_2 -->
+     <!-- Add a simple column 'col-1' to TABLE_2 -->
     <changeSet id="8" author="Ranuri">
-        <addColumn tableName="Ttttttttt">
-            <column name="col-3-haree"" type="varchar(10)"/>
+        <addColumn tableName="Ttttttttttttttttt">
+            <column name="col-3-not supposed to come" type="varchar(10)"/>
         </addColumn>
     </changeSet>
 
