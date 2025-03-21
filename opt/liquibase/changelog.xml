@@ -71,11 +71,19 @@
     </changeSet>
 
     
-     <!-- Add a simple column 'col-1' to TABLE_2 -->
+
+        <!-- Create a new table TABLE_MANUAL_ROLLBACK -->
     <changeSet id="10" author="Ranuri">
-        <addColumn tableName="Ttttttttttttttttt">
-            <column name="col-5-haree-ENNNA" type="varchar(10)"/>
-        </addColumn>
+        <createTable tableName="TABLE_MANUAL_ROLLBACK">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(10)"/>
+            <column name="description" type="text"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="TABLE_MANUAL_ROLLBACK"/>
+        </rollback>
     </changeSet>
 
 </databaseChangeLog>
