@@ -53,14 +53,17 @@ jobs:
       - name: Take Database Backups Inside AWS Server
         run: |
           echo "🛠️ Creating backups for all tenant databases before applying changes..."
-          ssh -vvv -i ~/.ssh/aws_key.pem -o StrictHostKeyChecking=no ec2-user@13.212.238.210 << EOF
-            for i in {100..104}; do
-              echo "Backing up tenant$i..."
-              mysqldump -u root -p"${{ secrets.MYSQL_PASSWORD }}" tenant$i > /home/ec2-user/tenant${i}_DUMP.sql
-            done
-          EOF
+          
+          # Run backup commands for each database in a separate SSH session
+          for i in {100..104}; do
+            DB_NAME="tenant$i"
+            echo "Backing up $DB_NAME..."
+            ssh -i ~/.ssh/aws_key.pem -o StrictHostKeyChecking=no ec2-user@13.212.238.210 "
+              mysqldump -u root -p\"${{ secrets.MYSQL_PASSWORD }}\" $DB_NAME > /home/ec2-user/${DB_NAME}_DUMP.sql
+            "
+          done
+      
           echo "✅ All backups created successfully!"
-   
 
 
       - name: Tag Database Before Update
