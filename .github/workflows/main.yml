@@ -59,7 +59,7 @@ jobs:
             DB_NAME="tenant$i"
             echo "Backing up $DB_NAME..."
             ssh -i ~/.ssh/aws_key.pem -o StrictHostKeyChecking=no ec2-user@13.212.238.210 "
-              mysqldump -u root -p\"${{ secrets.MYSQL_PASSWORD }}\" $DB_NAME > /home/ec2-user/${DB_NAME}_DUMP.sql
+              mysqldump -u root -p\"${{ secrets.MYSQL_PASSWORD }}\" $DB_NAME > /home/ec2-user/${DB_NAME}_DUMP_2222.sql
             "
           done
       
@@ -75,11 +75,48 @@ jobs:
             /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties  --url="jdbc:mariadb://13.212.238.210:3306/$DB_NAME" tag "before_update"
           done
 
-    
+
+      - name: Run Liquibase Update for All Tenants
+        id: liquibase_update
+        run: |
+
+         set +e  # Allow script to continue even if an error occurs
+         EXIT_CODE=0  # Initialize variable to track failures
+         
+          for i in {100..104}; do
+            DB_NAME="tenant$i"
+            echo "Running Liquibase for $DB_NAME..."
+            
+            /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties  --url="jdbc:mariadb://13.212.238.210:3306/$DB_NAME"  update --changelog-file=liquibase/changelog.xml --log-level=debug
+           
+             CODE=$?  # Capture exit code for this iteration
+            if [ $CODE -ne 0 ]; then
+                EXIT_CODE=$CODE  # Store failure code
+            fi
+          done
+            
+            echo "LIQUIBASE_EXIT_CODE=$EXIT_CODE" >> $GITHUB_ENV  # Save exit code globally
+            set -e  # Enable failing for later steps
+          
+
+
+      - name: Run Liquibase Rollback if Update Fails
+        if: env.LIQUIBASE_EXIT_CODE != '0'  # Run only if Liquibase failed
+        run: |
+          echo "⚠️ Update failed! Rolling back changes..."
+           for i in {100..104}; do
+            DB_NAME="tenant$i"
+            echo "Rolling back $DB_NAME..."
+            
+          /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties --url="jdbc:mariadb://13.212.238.210:3306/$DB_NAME" rollback --tag before_update --changelog-file=liquibase/changelog.xml --log-level=debug   
+         
+          done
+          echo "✅ Rollback completed!"
             
 
       - name: Print Success Message
         if: env.LIQUIBASE_EXIT_CODE == '0'  # Run only if Liquibase succeeded
         run: echo "✅ Liquibase migration applied successfully!"
+    
 
         
