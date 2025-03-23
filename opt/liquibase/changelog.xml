@@ -102,11 +102,15 @@
         </rollback>
     </changeSet>
 
-      <!-- Add a simple column 'col-1' to TABLE_2 -->
+
+    <!-- Add a simple column 'col-1' to TABLE_2 -->
     <changeSet id="12" author="Ranuri">
-        <addColumn tableName="TTTTTTTTTT">
+        <addColumn tableName="TABLE_2">
             <column name="col-5-haree-ENNNA" type="varchar(10)"/>
         </addColumn>
     </changeSet>
+
+
+     
 
 </databaseChangeLog>
