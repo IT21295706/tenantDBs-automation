@@ -110,6 +110,21 @@
         </addColumn>
     </changeSet>
 
+      <!-- Add a simple column 'col-1' to TABLE_2 -->
+    <changeSet id="13" author="Ranuri">
+        <addColumn tableName="TABLE_2">
+            <column name="col-6-haree-Enne-NA" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
+      <!-- Add a simple column 'col-1' to TABLE_2 -->
+    <changeSet id="14" author="Ranuri">
+        <addColumn tableName="Tttttt">
+            <column name="col-7-haree-Enne-NA" type="varchar(10)"/>
+        </addColumn>
+    </changeSet>
+
+
 
      
 
