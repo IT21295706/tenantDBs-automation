@@ -132,5 +132,14 @@
     </changeSet> 
 
     
+    <!-- Add a simple column 'col-1' to NEWWWWWWWWWW -->
+    <changeSet id="16" author="Ranuri">
+        <addColumn tableName="NEWWWWWWWWWW">
+            <column name="COL-1-YES" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
+
+    
 
 </databaseChangeLog>
