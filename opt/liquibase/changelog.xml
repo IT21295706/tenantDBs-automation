@@ -117,4 +117,18 @@
         </addColumn>
     </changeSet>  
 
+      <!-- Add a simple column 'col-1' to TABLE_2 -->
+    <changeSet id="14" author="Ranuri">
+        <addColumn tableName="TABLE_2">
+            <column name="col-7-haree-no" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
+      <!-- Add a simple column 'col-1' to TABLE_2 -->
+    <changeSet id="15" author="Ranuri">
+        <addColumn tableName="Ttttttttt">
+            <column name="col-8-haree-no" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
 </databaseChangeLog>
