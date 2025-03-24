@@ -139,6 +139,28 @@
         </addColumn>
     </changeSet> 
 
+       <!-- Add a simple column to NEWWWWWWWWWW -->
+    <changeSet id="17" author="Ranuri">
+        <addColumn tableName="NEWWWWWWWWWW">
+            <column name="COL-2-NO" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
+      <!-- Add a simple column to NEWWWWWWWWWW -->
+    <changeSet id="18" author="Ranuri">
+        <addColumn tableName="NEWWWWWWWWWW">
+            <column name="COL-3-NO" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
+
+      <!-- Add a simple column to NEWWWWWWWWWW -->
+    <changeSet id="19" author="Ranuri">
+        <addColumn tableName="ddddddd">
+            <column name="COL-4-NO" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
 
     
 
