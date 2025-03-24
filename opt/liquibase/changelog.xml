@@ -160,9 +160,27 @@
         </addColumn>
     </changeSet> 
 
+       <!-- Add a simple column to NEWWWWWWWWWW -->
+    <changeSet id="20" author="Ranuri">
+        <addColumn tableName="NEWWWWWWWWWW">
+            <column name="COL-5-NO" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
 
 
+      <!-- Add a simple column to NEWWWWWWWWWW -->
+    <changeSet id="21" author="Ranuri">
+        <addColumn tableName="NEWWWWWWWWWW">
+            <column name="COL-6-NO" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
 
-    
+      <!-- Add a simple column to NEWWWWWWWWWW -->
+    <changeSet id="22" author="Ranuri">
+        <addColumn tableName="rrrr">
+            <column name="COL-7-NO" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
 
 </databaseChangeLog>
