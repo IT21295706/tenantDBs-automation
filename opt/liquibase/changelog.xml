@@ -176,7 +176,7 @@
     </changeSet> 
 
 
-      <!------------------------------------------------------ r_table ------>
+       <!-- r_table -->
     <changeSet id="23" author="Ranuri">
         <addColumn tableName="r_table">
             <column name="COL-1-YES" type="varchar(10)"/>
