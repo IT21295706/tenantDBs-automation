@@ -183,5 +183,21 @@
         </addColumn>
     </changeSet> 
 
+    
+       <!-- r_table -->
+    <changeSet id="24" author="Ranuri">
+        <addColumn tableName="r_table">
+            <column name="COL-2-NO" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
+        <!-- r_table -->
+    <changeSet id="25" author="Ranuri">
+        <addColumn tableName="eeeeee">
+            <column name="COL-3-NO" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
+
 
 </databaseChangeLog>
