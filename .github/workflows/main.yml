@@ -112,12 +112,13 @@ jobs:
         if: env.LIQUIBASE_EXIT_CODE != '0'  # Run only if Liquibase failed
         run: |
           echo "⚠️ Update failed! Rolling back changes..."
-           for i in {100..104}; do
-            DB_NAME="tenant$i"
-            echo "Rolling back $DB_NAME..."
-            
-          /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties --url="jdbc:mariadb://13.212.238.210:3306/$DB_NAME" rollback --tag before_update --changelog-file=liquibase/changelog.xml --log-level=debug   
-         
+          for i in {100..104}; do
+          DB_NAME="tenant$i"
+          TAG_NAME=$(printenv TAG_NAME_$DB_NAME)  # Retrieve tag name per DB
+
+          echo "Rolling back $DB_NAME to tag $TAG_NAME..."
+          /opt/liquibase/liquibase --searchPath=/opt --defaults-file=/opt/liquibase/liquibase.properties \
+          --url="jdbc:mariadb://13.212.238.210:3306/$DB_NAME" rollback --tag "$TAG_NAME" --changelog-file=liquibase/changelog.xml --log-level=debug   
           done
           echo "✅ Rollback completed!"
             
