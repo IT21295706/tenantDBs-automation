@@ -200,5 +200,12 @@
     </changeSet> 
 
 
+     <!-- r_table -->
+    <changeSet id="26" author="Ranuri">
+        <addColumn tableName="r_table">
+            <column name="COL-4-YES" type="varchar(10)"/>
+        </addColumn>
+    </changeSet> 
+
 
 </databaseChangeLog>
