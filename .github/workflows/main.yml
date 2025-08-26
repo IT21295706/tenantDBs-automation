@@ -50,17 +50,17 @@ jobs:
           chmod 600 ~/.ssh/aws_key.pem
 
 
-      - name: Take Database Backups Inside AWS Server
-        run: |
-          echo "🛠️ Creating backups for all tenant databases before applying changes..."
-          ssh -i ~/.ssh/aws_key.pem -o StrictHostKeyChecking=no ec2-user@13.212.238.210 << 'EOF'
-            for i in {100..104}; do
-              DB_NAME="tenant$i"
-             echo "Backing up $DB_NAME..."
-             mysqldump -u root -p"${{ secrets.MYSQL_PASSWORD }}" $DB_NAME > /home/ec2-user/${DB_NAME}_DUMP_ewka.sql
-           done
-          EOF
-          echo "✅ All backups created successfully!"
+  #    - name: Take Database Backups Inside AWS Server
+  #      run: |
+  #        echo "🛠️ Creating backups for all tenant databases before applying changes..."
+  #        ssh -i ~/.ssh/aws_key.pem -o StrictHostKeyChecking=no ec2-user@13.212.238.210 << 'EOF'
+  #          for i in {100..104}; do
+  #            DB_NAME="tenant$i"
+  #           echo "Backing up $DB_NAME..."
+  #           mysqldump -u root -p"${{ secrets.MYSQL_PASSWORD }}" $DB_NAME > /home/ec2-user/${DB_NAME}_DUMP_ewka.sql
+  #         done
+  #        EOF
+  #        echo "✅ All backups created successfully!"
 
 
       - name: Tag Database Before Update
