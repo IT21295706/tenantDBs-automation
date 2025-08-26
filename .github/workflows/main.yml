@@ -66,7 +66,7 @@ jobs:
       - name: Tag Database Before Update
         run: |
           TIMESTAMP=$(date +%Y%m%d_%H%M%S)  # Generate unique timestamp
-          for i in {100..104}; do
+          for i in {100..102}; do
             DB_NAME="tenant$i"
             TAG_NAME="before_update_${TIMESTAMP}"
             echo "Tagging database: $DB_NAME with tag $TAG_NAME"
@@ -87,7 +87,7 @@ jobs:
          set +e  # Allow script to continue even if an error occurs
          EXIT_CODE=0  # Initialize variable to track failures
          
-          for i in {100..104}; do
+          for i in {100..102}; do
             DB_NAME="tenant$i"
             echo "Running Liquibase for $DB_NAME..."
             
@@ -108,7 +108,7 @@ jobs:
         if: env.LIQUIBASE_EXIT_CODE != '0'  # Run only if Liquibase failed
         run: |
           echo "⚠️ Update failed! Rolling back changes..."
-          for i in {100..104}; do
+          for i in {100..102}; do
           DB_NAME="tenant$i"
           TAG_NAME=$(printenv TAG_NAME_$DB_NAME)  # Retrieve tag name per DB
 

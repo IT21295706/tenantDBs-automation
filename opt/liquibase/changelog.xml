@@ -224,6 +224,11 @@
     </changeSet> 
 
 
+    <changeSet id="30" author="Ranuri">
+        <createTable tableName="table888">
+            <column name="COL-1" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
 
 
 </databaseChangeLog>
